@@ -12,12 +12,12 @@
 			<transition name="slide" enter-from-class="translate-x-[-80%] opacity-0"
 				enter-active-class="transition duration-500 delay-1000" >
 				<div v-if="showNav" class="flex font-Josefin h-14 rounded-xl bg-[#1679AB] w-2/3 text-white">
-					<div class="flex justify-evenly w-full transform translate-x-50 transition-transform duration-5000">
+					<div class="flex justify-evenly w-full transform translate-x-50 transition-transform duration-1000">
 						<button ref="aboutBtn"
-							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-75 delay-75 rounded-l-xl focus:bg-[#36Ba98] focus:text-white active" @click="() => {this.showHero = true;this.showNav = true;content = 'Content'}">About</button>
-						<button id="portfolioBtn"
-							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-75 delay-75 focus:bg-[#36Ba98] focus:text-white">Projects</button>
-						<button id="contactBtn"
+							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-75 delay-75 rounded-l-xl focus:bg-[#36Ba98] focus:text-white active" @click="() => {content = 'Content'}">About</button>
+						<button ref="portfolioBtn"
+							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-75 delay-75 focus:bg-[#36Ba98] focus:text-white" @click="content = 'Projects'">Projects</button>
+						<button ref="contactBtn"
 							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-75 delay-75 rounded-r-xl focus:bg-[#36Ba98] focus:text-white" @click="content = 'Contact'">Contact</button>
 					</div>
 				</div>
@@ -58,7 +58,6 @@ export default {
 	mounted(){
 		this.showHero = true;
 		this.showNav = true;
-
     }
 }
 </script>
