@@ -10,7 +10,6 @@
             </p>
 			<img src="../assets/pic.png" alt="" width="400" height="400" class="rounded-full mt-4">
 		</div>
-
 </template>
 <script>
     console.log('test')

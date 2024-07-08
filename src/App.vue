@@ -20,8 +20,8 @@
 				<div v-if="showNav" class="flex font-Josefin h-14 rounded-xl bg-[#1679AB] w-2/3 text-white">
 					<div class="flex justify-evenly w-full transform translate-x-50 transition-transform duration-500">
 						<button ref="aboutBtn"
-							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-50 delay-50 rounded-l-xl focus:bg-[#36Ba98] focus:text-white active"
-							@click="() => {this.showSecondary = true; this.content = 'Content'; this.secondaryContent = 'TechnicalSkills'}">About</button>
+							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-50 delay-50 rounded-l-xl focus:outline-none focus:bg-[#36Ba98] focus:text-white active"
+							@click="() => {this.showSecondary = true; this.content = 'Content'; this.secondaryContent = 'TechnicalSkills'}" autofocus>About</button>
 						<button ref="portfolioBtn"
 							class="text-white w-1/3 hover:bg-white hover:text-[#1679AB] transition-color duration-50 delay-50 focus:bg-[#36Ba98] focus:text-white"
 							@click="() => {this.showSecondary = false; this.content = 'Projects'}">Projects</button>
@@ -31,7 +31,6 @@
 					</div>
 				</div>
 			</transition>
-
 		</div>
 	</header>
 
@@ -62,7 +61,6 @@
 
 
 <script>
-//leave-from-class="translate-x-[80%] opacity-100" leave-active-class="transition duration-500 delay-1000"
 import Hero from './components/Hero.vue';
 import Content from './components/Content.vue';
 import ContactMessage from './components/ContactMessage.vue';
