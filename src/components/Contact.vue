@@ -1,7 +1,7 @@
 <template lang="">
         <div v-if="showContact" class="mt-20 ml-28 px-4 w-2/3 text-xl h-auto">
             <div class="flex items-center">
-                <img src="../assets/email.png" alt="" width="50px" height="50px" class="p-3">
+                <img src="../assets/mail.png" alt="" width="50px" height="50px" class="p-3">
                 <p>Email: t.mains515@gmail.com</p>
             </div>
             <div class="flex items-center">
