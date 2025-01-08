@@ -2,7 +2,7 @@
     <div class="flex w-full">
         <div class="mt-20 ml-28 px-4 w-2/3 gap-8 flex flex-col">
             <h1 class="text-3xl">Technical Skills</h1>
-            <div class=" flex flex-wrap justify-between h-2/3 rounded-xl w-full gap-1">
+            <div class=" flex flex-wrap gap-3 rounded-xl w-full">
 
                 <!-- Technical Skills: Language and Framework Divs -->
                 <SkillCard 
@@ -45,7 +45,7 @@
     import sqlServerImg from "../assets/sqlserver.png"
     import tailwindImg from "../assets/tailwind.png"
     import vueImg from "../assets/vue.png"
-    
+
     export default {
     name: 'TechnicalSkills',
     data(){
