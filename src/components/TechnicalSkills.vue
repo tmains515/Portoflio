@@ -1,33 +1,42 @@
-<template lang="">
-    <div class="flex w-full">
-        <div class="mt-20 ml-28 px-4 w-2/3 gap-8 flex flex-col">
-            <h1 class="text-3xl">Technical Skills</h1>
-            <div class=" flex flex-wrap gap-3 rounded-xl w-full">
-
-                <!-- Technical Skills: Language and Framework Divs -->
-                <SkillCard 
+<template>
+    <div class="mt-20 ml-28 px-4 w-2/3 gap-8 flex flex-col">
+        <h1 class="text-3xl">Technical Skills</h1>
+        <transition-group 
+            tag="div"
+            name="skill-transition"
+            class="flex flex-wrap gap-3 rounded-xl w-full"
+            appear
+        >
+            <SkillCard 
+                v-if="startChildTransition"
                 v-for="(skill, index) in skills" 
-                :key = "index"
-                :name = skill.name
-                :image = skill.image
-                />
-            </div>
-
-            <!-- Technical Skills:Developer Tools Div -->
-            <!-- <div>
-                <h1 class="text-xl">Developer Tools:</h1>
-                <ul class="text-white list-disc list-inside">
-                    <li class="list-item">Git</li>
-                    <li class="list-item">Visual Studio</li>
-                    <li class="list-item">IntelliJ</li>
-                    <li class="list-item">Azure</li>
-                    <li class="list-item">DBeaver</li>
-                    <li class="list-item">Microsoft SQL Server</li>
-                </ul>
-            </div> -->
-		</div>
+                :key="skill.name" 
+                :name="skill.name"
+                :image="skill.image"
+                :style="{ transitionDelay: `${index * 100}ms` }"
+            />
+        </transition-group>
     </div>
 </template>
+
+<style scoped>
+    /* Transition Animations */
+    .skill-transition-enter-active {
+        transition: transform .7s ease-out 4s, opacity 0.6s ease-out 4s;
+    }
+    .skill-transition-enter-from {
+        transform: translateX(80%);
+        opacity: 0;
+    }
+    .skill-transition-enter-to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .skill-transition-move {
+        transition: all 0.5s ease-out;
+    }
+</style>
+
 <script>
     import SkillCard from '../components/SkillCard.vue'
     import javaImg from "../assets/java.png"
@@ -45,11 +54,13 @@
     import sqlServerImg from "../assets/sqlserver.png"
     import tailwindImg from "../assets/tailwind.png"
     import vueImg from "../assets/vue.png"
+    import springBoot from "../assets/spring-boot.png"
 
     export default {
     name: 'TechnicalSkills',
     data(){
         return {
+            startChildTransition: false,
             skills: [
                 {name: "Java", image: javaImg},
                 {name: "Spring", image: springImg},
@@ -66,12 +77,19 @@
                 {name: "React.js", image: reactImg},
                 {name: "Vue.js", image: vueImg},
                 {name: "TailwindCSS", image: tailwindImg},
+                {name: "Spring-Boot", image: springBoot},
+
             ]
         }
     },
+    mounted() {
+        setTimeout(() => {
+            this.startChildTransition = true;
+        }, 1000); // Delay matches the parent transition duration
+    },
     components: {
         SkillCard
-    }
+    },
 }
 </script>
 <style lang="">

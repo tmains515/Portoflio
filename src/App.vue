@@ -34,31 +34,38 @@
 						</div>
 					</div>
 				</transition>
+		
 			</div>
 		</header>
 
 		<div class="flex flex-col w-full text-white bg-[#102C57] " @pointerdown.prevent>
 			<div class="flex flex-row flex-grow">
 				<!-- Content Displayed -->
-				<transition mode="out-in" enter-from-class="translate-x-[-80%] opacity-0"
-					enter-active-class="transition duration-1000" leave-active-class="transition duration-500"
-					leave-to-class="translate-x-[-80%] opacity-0">
+				<transition 
+				mode="out-in" 
+				enter-from-class="translate-x-[-80%] opacity-0"
+				enter-active-class="transition duration-1000" 
+				leave-active-class="transition duration-500"
+				leave-to-class="translate-x-[-80%] opacity-0">
 					<div v-if="showContent" :key="content" class="flex h-full px-10 justify-center"
 						:class="showSecondary ? 'w-2/3' : 'w-full absolute'">
 						<component :is="content" />
 					</div>
 				</transition>
 
-				<!-- Secondary Content Displayed -->
-				<transition mode="out-in" enter-from-class="translate-x-[80%] opacity-0"
-					enter-active-class="transition duration-1000" leave-active-class="transition duration-500"
-					leave-to-class="translate-x-[80%] opacity-0">
-					<div v-if="showContent" :key="secondaryContent" class="flex w-2/3">
-						<component :is="secondaryContent" />
-					</div>
-				</transition>
+				<transition 
+				mode="out-in" 
+				appear
+				enter-from-class="translate-x-[80%] opacity-0"
+				enter-active-class="transition-all duration-1000 ease-out"
+				leave-active-class="transition-all duration-500 ease-in"
+				leave-to-class="translate-x-[80%] opacity-0"
+			>
+				<div v-if="showContent" :key="secondaryContent" class="flex w-2/3">
+					<component :is="secondaryContent" />
+				</div>
+			</transition>				
 			</div>
-			<!-- <div class="flex-grow w-full h-full bg-[#102C57]"></div> -->
 		</div>
 	</div>
 </template>
@@ -78,8 +85,7 @@ import Projects from './components/Projects.vue';
 import TechnicalSkills from './components/TechnicalSkills.vue'
 
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+import 'aos/dist/aos.css';
 
 
 export default {

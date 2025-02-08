@@ -1,7 +1,7 @@
 <template lang="">
     
     <!-- Profile img & summary -->
-        <div class="mt-20 ml-28 px-4 w-2/3">
+        <div class="mt-20 ml-28 px-4 w-2/3 " data-aos="translate-right">
 			<p> Aspiring software engineer actively looking to advance my skill set
                 in web development and related technologies while in persuit of my
                 Bachelors in Computer Science from California State University, Sacramento.
@@ -20,6 +20,7 @@ export default {
     },
     mounted(){
         this.aboutContent = true;
+        
     },
 
 }
